@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football/bloc/match/match_bloc.dart';
-import 'package:flutter_football/view/screens/detail/widgets/matches_item.dart';
+import 'package:flutter_football/view/screens/detail/widgets/matches_tab/matches_item.dart';
 
 class MatchesList extends StatelessWidget {
   @override

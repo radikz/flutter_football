@@ -18,13 +18,13 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
     MatchEvent event,
   ) async* {
     if (event is MatchFetched){
-      yield await _mapStandingToState(state, event.id);
+      yield await _mapStandingToState(state, event.id, event.now);
     }
   }
 
-  Future<MatchState> _mapStandingToState(MatchState state, int id) async {
+  Future<MatchState> _mapStandingToState(MatchState state, int id, DateTime now) async {
     try {
-      final matches = await Api().fetchDataMatch(id);
+      final matches = await Api().fetchDataMatch(id, now);
       final groupMatches = groupEmployeesByCountry(matches.matches);
       return state.copyWith(
           status: MatchStatus.success,

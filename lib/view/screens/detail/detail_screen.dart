@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football/bloc/standing/standing_bloc.dart';
-import 'package:flutter_football/view/screens/detail/widgets/matches_list.dart';
-import 'package:flutter_football/view/screens/detail/widgets/standings_list.dart';
+import 'package:flutter_football/view/screens/detail/widgets/matches_tab/matches_list.dart';
+import 'package:flutter_football/view/screens/detail/widgets/standing_tab/standing_list.dart';
 
 class DetailScreen extends StatelessWidget {
 
@@ -47,7 +47,7 @@ class DetailScreen extends StatelessWidget {
           padding: const EdgeInsets.only(top: 15, bottom: 5, right: 5, left: 10),
           child: TabBarView(
             children: [
-              StandingsList(),
+              StandingList(),
               MatchesList(),
             ],
           ),

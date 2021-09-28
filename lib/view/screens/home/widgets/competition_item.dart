@@ -16,7 +16,7 @@ class CompetitionItem extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         context.read<StandingBloc>().add(StandingFetched(id: competition.id));
-        context.read<MatchBloc>().add(MatchFetched(id: competition.id));
+        context.read<MatchBloc>().add(MatchFetched(id: competition.id, now: DateTime.now()));
         Navigator.of(context).pushNamed(DetailScreen.routeName);
       },
       child: Container(

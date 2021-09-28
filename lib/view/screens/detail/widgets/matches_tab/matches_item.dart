@@ -3,7 +3,6 @@ import 'package:flutter_football/model/matches.dart';
 import 'package:flutter_football/utils/converter.dart';
 
 class MatchesItem extends StatelessWidget {
-  // final Map<DateTime, List<MatchElement>> match;
   final DateTime date;
   final List<MatchElement> match;
 

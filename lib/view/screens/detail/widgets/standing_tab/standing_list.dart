@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football/bloc/standing/standing_bloc.dart';
-import 'package:flutter_football/view/screens/detail/widgets/standing_item.dart';
+import 'package:flutter_football/view/screens/detail/widgets/standing_tab/standing_item.dart';
 
-class StandingsList extends StatelessWidget {
+class StandingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -5,5 +5,6 @@ abstract class MatchEvent {}
 
 class MatchFetched extends MatchEvent {
   final int id;
-  MatchFetched({required this.id});
+  final DateTime now;
+  MatchFetched({required this.id, required this.now});
 }
