@@ -124,7 +124,7 @@ class MatchElement {
   final dynamic group;
   final DateTime lastUpdated;
   final Odds odds;
-  final Score score;
+  final Score? score;
   final Area homeTeam;
   final Area awayTeam;
   final List<Referee> referees;
@@ -155,7 +155,7 @@ class MatchElement {
     "group": group,
     "lastUpdated": lastUpdated.toIso8601String(),
     "odds": odds.toJson(),
-    "score": score.toJson(),
+    "score": score == null ? null : score!.toJson(),
     "homeTeam": homeTeam.toJson(),
     "awayTeam": awayTeam.toJson(),
     "referees": List<dynamic>.from(referees.map((x) => x.toJson())),
@@ -216,7 +216,7 @@ class Score {
     required this.penalties,
   });
 
-  final String winner;
+  final String? winner;
   final String duration;
   final ExtraTime fullTime;
   final ExtraTime halfTime;

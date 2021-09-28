@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football/bloc/standing/standing_bloc.dart';
+import 'package:flutter_football/view/screens/detail/widgets/matches_list.dart';
 import 'package:flutter_football/view/screens/detail/widgets/standings_list.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -47,7 +48,7 @@ class DetailScreen extends StatelessWidget {
           child: TabBarView(
             children: [
               StandingsList(),
-              Icon(Icons.directions_transit),
+              MatchesList(),
             ],
           ),
         ),

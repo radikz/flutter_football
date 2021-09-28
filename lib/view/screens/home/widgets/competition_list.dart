@@ -11,7 +11,7 @@ class CompetitionList extends StatelessWidget {
         switch (state.status) {
           case CompetitionStatus.failure:
             return Center(
-              child: Text(''),
+              child: Text('Failed to Load Data'),
             );
           case CompetitionStatus.success:
             return listCompetition(state);

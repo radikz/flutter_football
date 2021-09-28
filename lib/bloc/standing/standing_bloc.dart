@@ -24,7 +24,7 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
 
   Future<StandingState> _mapStandingToState(StandingState state, int id) async {
     try {
-      final standing = await Api().fetchDataMatch(id);
+      final standing = await Api().fetchDataStanding(id);
       return state.copyWith(
           status: StandingStatus.success,
           data: standing

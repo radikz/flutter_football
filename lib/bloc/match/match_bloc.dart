@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter_football/model/empty_exception.dart';
 import 'package:flutter_football/model/matches.dart';
 import 'package:flutter_football/utils/api.dart';
@@ -23,10 +24,11 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
 
   Future<MatchState> _mapStandingToState(MatchState state, int id) async {
     try {
-      final matches = await Api().fetchDataStanding(id);
+      final matches = await Api().fetchDataMatch(id);
+      final groupMatches = groupEmployeesByCountry(matches.matches);
       return state.copyWith(
           status: MatchStatus.success,
-          data: matches
+          data: groupMatches
       );
     } on EmptyException {
       return state.copyWith(
@@ -38,5 +40,12 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
           status: MatchStatus.failure
       );
     }
+  }
+
+  Map<DateTime, List<MatchElement>> groupEmployeesByCountry(List<MatchElement> match) {
+    final groups = groupBy(match, (MatchElement e) {
+      return e.utcDate;
+    });
+    return groups;
   }
 }
