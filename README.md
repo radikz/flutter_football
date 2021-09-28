@@ -1,16 +1,38 @@
-# flutter_football
+## Flutter Football
+Football app made in flutter using football-data api, 
 
-A new Flutter project.
+## OPEN-SOURCE LIBRARIES
+- [http](https://pub.dev/packages/http)
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- [flutter_svg](https://pub.dev/packages/flutter_svg)
+- [intl](https://pub.dev/packages/intl)
+- [connectivity_plus](https://pub.dev/packages/connectivity_plus)
+- [collection](https://pub.dev/packages/collection)
 
-## Getting Started
+## Flutter version
+>Flutter Flutter 2.2.3
+>
+>Tools • Dart 2.13.4
 
-This project is a starting point for a Flutter application.
+## Getting a Football Data API Token
 
-A few resources to get you started if this is your first Flutter project:
+This project uses the Football data to get the latest competitions, matches, and standings data.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Before running the app you need to [sign up on the Football data website](https://www.football-data.org/)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Once you have this, take a look at `constants.dart` file inside `utils/`, and add your API Token:
+
+```dart
+// constants.dart
+const String API_TOKEN = "Your-API-Token";
+```
+
+Congrats, you're good to go. 😎
+
+## How to use it?
+
+```cli
+git clone
+flutter pub get
+flutter run
+```
