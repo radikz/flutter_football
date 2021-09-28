@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_football/model/empty_exception.dart';
+import 'package:flutter_football/model/enum.dart';
 import 'package:flutter_football/model/matches.dart';
 import 'package:flutter_football/utils/api.dart';
 import 'package:meta/meta.dart';
@@ -27,17 +28,17 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
       final matches = await Api().fetchDataMatch(id, now);
       final groupMatches = groupEmployeesByCountry(matches.matches);
       return state.copyWith(
-          status: MatchStatus.success,
+          status: DataStatus.success,
           data: groupMatches
       );
     } on EmptyException {
       return state.copyWith(
-          status: MatchStatus.empty,
+          status: DataStatus.empty,
           data: null
       );
     } on Exception {
       return state.copyWith(
-          status: MatchStatus.failure
+          status: DataStatus.failure
       );
     }
   }

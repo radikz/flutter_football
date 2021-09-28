@@ -1,15 +1,13 @@
 part of 'match_bloc.dart';
 
-enum MatchStatus { loading, success, failure, empty }
-
 class MatchState {
-  const MatchState({this.status = MatchStatus.loading, this.data});
+  const MatchState({this.status = DataStatus.loading, this.data});
 
-  final MatchStatus status;
+  final DataStatus status;
   // final Matches? data;
   final Map<DateTime, List<MatchElement>>? data;
 
-  MatchState copyWith({MatchStatus? status, Map<DateTime, List<MatchElement>>? data}) {
+  MatchState copyWith({DataStatus? status, Map<DateTime, List<MatchElement>>? data}) {
     return MatchState(status: status ?? this.status, data: data ?? this.data);
   }
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football/bloc/match/match_bloc.dart';
+import 'package:flutter_football/model/enum.dart';
 import 'package:flutter_football/view/screens/detail/widgets/matches_tab/matches_item.dart';
+import 'package:flutter_football/view/screens/error/error_screen.dart';
 
 class MatchesList extends StatelessWidget {
   @override
@@ -9,11 +11,9 @@ class MatchesList extends StatelessWidget {
     return BlocBuilder<MatchBloc, MatchState>(
       builder: (context, state) {
         switch (state.status) {
-          case MatchStatus.failure:
-            return Center(
-              child: Text('Failed to load data'),
-            );
-          case MatchStatus.success:
+          case DataStatus.failure:
+            return ErrorScreen();
+          case DataStatus.success:
             return ListView.separated(
               itemCount: state.data!.length,
               itemBuilder: (context, index) {

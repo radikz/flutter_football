@@ -26,8 +26,10 @@ class CompetitionItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              child: SvgPicture.network(competition.area.ensignUrl, width: 140,),
+            Expanded(
+              child: Container(
+                child: SvgPicture.network(competition.area.ensignUrl, width: 140,),
+              ),
             ),
             SizedBox(height: 10,),
             Container(

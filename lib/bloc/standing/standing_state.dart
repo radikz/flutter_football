@@ -1,14 +1,12 @@
 part of 'standing_bloc.dart';
 
-enum StandingStatus { loading, success, failure, empty }
-
 class StandingState {
-  const StandingState({this.status = StandingStatus.loading, this.data});
+  const StandingState({this.status = DataStatus.loading, this.data});
 
-  final StandingStatus status;
+  final DataStatus status;
   final Standing? data;
 
-  StandingState copyWith({StandingStatus? status, Standing? data}) {
+  StandingState copyWith({DataStatus? status, Standing? data}) {
     return StandingState(status: status ?? this.status, data: data ?? this.data);
   }
 

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_football/model/empty_exception.dart';
+import 'package:flutter_football/model/enum.dart';
 import 'package:flutter_football/model/standing.dart';
 import 'package:flutter_football/utils/api.dart';
 import 'package:meta/meta.dart';
@@ -17,7 +18,7 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
     StandingEvent event,
   ) async* {
     if (event is StandingFetched){
-      yield state.copyWith(status: StandingStatus.loading);
+      yield state.copyWith(status: DataStatus.loading);
       yield await _mapStandingToState(state, event.id);
     }
   }
@@ -26,17 +27,17 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
     try {
       final standing = await Api().fetchDataStanding(id);
       return state.copyWith(
-          status: StandingStatus.success,
+          status: DataStatus.success,
           data: standing
       );
     } on EmptyException {
       return state.copyWith(
-          status: StandingStatus.empty,
+          status: DataStatus.empty,
           data: null
       );
     } on Exception {
       return state.copyWith(
-          status: StandingStatus.failure
+          status: DataStatus.failure
       );
     }
   }
