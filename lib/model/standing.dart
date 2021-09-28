@@ -227,12 +227,12 @@ class Team {
 
   final int id;
   final String name;
-  final String crestUrl;
+  final String? crestUrl;
 
   factory Team.fromJson(Map<String, dynamic> json) => Team(
     id: json["id"],
     name: json["name"],
-    crestUrl: json["crestUrl"],
+    crestUrl: json["crestUrl"] == null ? null : json["crestUrl"],
   );
 
   Map<String, dynamic> toJson() => {

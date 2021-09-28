@@ -20,7 +20,7 @@ class App extends StatelessWidget {
         ],
         child: MaterialApp(
           theme: ThemeData(
-            primaryColor: Colors.white,
+            primarySwatch: Colors.grey,
           ),
           debugShowCheckedModeBanner: false,
           home: HomeScreen(),

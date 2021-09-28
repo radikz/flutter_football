@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class StandingItem extends StatelessWidget {
+  final bool header;
   final int? position;
   final String? teamCrestUrl;
   final String? teamName;
@@ -14,7 +15,8 @@ class StandingItem extends StatelessWidget {
   final String goalsAgainst;
 
   StandingItem(
-      {this.position,
+      {this.header = false,
+      this.position,
       this.teamCrestUrl,
       this.teamName,
       required this.points,
@@ -35,12 +37,25 @@ class StandingItem extends StatelessWidget {
         ),
         Expanded(
           flex: 1,
-          child: teamCrestUrl != null
-              ? SvgPicture.network(
-                  teamCrestUrl!,
-                  width: 40,
-                )
-              : Container(),
+          child: Container(
+            alignment: Alignment.center,
+            child: teamCrestUrl != null
+                ? SvgPicture.network(
+                    teamCrestUrl!,
+                    width: 50,
+                    placeholderBuilder: (context) =>
+                        Center(child: Text('Loading...')),
+                  )
+                : !header
+                    ? SvgPicture.asset(
+                        "assets/error.svg",
+                        width: 50,
+                      )
+                    : Container(),
+          ),
+        ),
+        SizedBox(
+          width: 15,
         ),
         Expanded(
           flex: 5,

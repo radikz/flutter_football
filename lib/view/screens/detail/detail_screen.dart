@@ -14,18 +14,6 @@ class DetailScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          bottom: const TabBar(
-            indicatorColor: Colors.white,
-            unselectedLabelColor: Colors.grey,
-            tabs: [
-              Tab(
-                text: "STANDING",
-              ),
-              Tab(
-                text: "MATCHES",
-              ),
-            ],
-          ),
           title: BlocBuilder<StandingBloc, StandingState>(
             builder: (context, state) {
               switch (state.status) {
@@ -43,10 +31,33 @@ class DetailScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 15, bottom: 5, right: 5, left: 10),
-          child: TabBarView(
+          child: Column(
             children: [
-              StandingList(),
-              MatchesList(),
+              Container(
+                child: TabBar(
+                  indicatorColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
+                  tabs: [
+                    Tab(
+                      text: "STANDING",
+                    ),
+                    Tab(
+                      text: "MATCHES",
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: TabBarView(
+                    children: [
+                      StandingList(),
+                      MatchesList(),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

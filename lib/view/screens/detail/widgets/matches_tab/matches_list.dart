@@ -11,7 +11,7 @@ class MatchesList extends StatelessWidget {
         switch (state.status) {
           case MatchStatus.failure:
             return Center(
-              child: Text(''),
+              child: Text('Failed to load data'),
             );
           case MatchStatus.success:
             return ListView.separated(
