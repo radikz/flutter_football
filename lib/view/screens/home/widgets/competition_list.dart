@@ -14,7 +14,19 @@ class CompetitionList extends StatelessWidget {
               child: Text('Failed to Load Data'),
             );
           case CompetitionStatus.success:
-            return listCompetition(state);
+            // return listCompetition(state);
+            final competition = state.data!.competitions;
+            return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing:50,
+                mainAxisSpacing: 20,
+              ),
+              itemCount: competition.length,
+              itemBuilder: (context, index) {
+                return CompetitionItem(competition: competition[index]);
+              },
+            );
           default:
             return Center(
               child: CircularProgressIndicator(),

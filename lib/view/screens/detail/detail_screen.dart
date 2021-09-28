@@ -36,9 +36,7 @@ class DetailScreen extends StatelessWidget {
                 case StandingStatus.success:
                   return Text(state.data!.competition.name);
                 default:
-                  return Center(
-                    child: Text('Loading...'),
-                  );
+                  return Text('Loading...');
               }
             },
           ),

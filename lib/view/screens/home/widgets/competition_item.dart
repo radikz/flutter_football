@@ -20,8 +20,6 @@ class CompetitionItem extends StatelessWidget {
         Navigator.of(context).pushNamed(DetailScreen.routeName);
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        padding: EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black)
         ),
